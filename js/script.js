@@ -1,17 +1,19 @@
-let choice;
+var choice; 
 
 function getComputerChoice(choice) {
     let computerChoice = Math.random()
     console.log(computerChoice)
     if (computerChoice >= 0.000 && computerChoice < 0.333) {
-        console.log('rock')
+        choice = 'rock'
+        return console.log(choice)
     } else if (computerChoice >= 0.333 && computerChoice < 0.666) {
-        console.log('paper')
+        choice = 'paper'                                                    //choice is not globally defined, should be an issue
+        return console.log(choice)
     } else if (computerChoice >= 0.666 && computerChoice < 1) {
-        console.log('scissors')
+        choice = 'scissors'
+        return console.log(choice)
     } else {
-        console.log('error?')
+        return console.log('error in getComputerChoice')
     }
 }
-
 getComputerChoice(choice);
