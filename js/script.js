@@ -13,7 +13,7 @@ function getComputerChoice(choice) {
         return console.log('error in getComputerChoice')
     }
 }
-var computerChoice = getComputerChoice(choice);
+var computerChoice = getComputerChoice(choice); //this (i think) is playing an initial and extra game that I do not want. Idk why.
 
 function getPlayerChoice(choice) {
     let whatIsPlayerChoice = prompt('enter choice as a number: \n1. rock \n2. paper \n3. scissors')
@@ -28,7 +28,7 @@ function getPlayerChoice(choice) {
         return choice = 'invalid entry'
     }
 }
-var playerChoice = getPlayerChoice(choice);
+var playerChoice = getPlayerChoice(choice); //this (i think) is playing an initial and extra game that I do not want. Idk why.
 
 var playerCount = 0;
 var computerCount = 0;
