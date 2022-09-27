@@ -1,4 +1,4 @@
-let choice;
+var choice;
 
 function getComputerChoice(choice) {
     let computerChoice = Math.random()
@@ -13,32 +13,32 @@ function getComputerChoice(choice) {
         return console.log('error in getComputerChoice')
     }
 }
-let computerChoice = getComputerChoice(choice);
-console.log(`Computer choice: is ${computerChoice}`)              //this should probably run after player choice is taken
+var computerChoice = getComputerChoice(choice);
 
 function getPlayerChoice(choice) {
-    let playerChoice = prompt('enter choice: \n1. rock \n2. paper \n3. scissors')
-    if (playerChoice == 1) {
+    let whatIsPlayerChoice = prompt('enter choice as a number: \n1. rock \n2. paper \n3. scissors')
+    if (whatIsPlayerChoice == 1) {
         return choice = 'rock'
-    } else if (playerChoice == 2) {
+    } else if (whatIsPlayerChoice == 2) {
         return choice = 'paper'
-    } else if (playerChoice == 3) {
+    } else if (whatIsPlayerChoice == 3) {
         return choice = 'scissors'
     } else {
-        alert('you entered number outside of given range')
+        alert('You have entered number outside of given range')
         return choice = 'invalid entry'
     }
 }
-playerChoice = getPlayerChoice(choice);
-console.log(`Player choice is: ${playerChoice}`)
+var playerChoice = getPlayerChoice(choice);
 
-let playerCount = 'player score is ' + 0;
-let computerCount = 'computer score is ' + 0;
+var playerCount = 0;
+var computerCount = 0;
 
 function playRound(computerChoice, playerChoice) {
+    console.log(`Player choice is: ${playerChoice}`);
+    console.log(`Computer choice is: ${computerChoice}`);
     if (playerChoice === 'rock') {
         if (computerChoice === 'rock') {
-            console.log('it\'s a draw')
+            console.log('It\'s a draw')
             return playerCount = playerCount + 1, computerCount = computerCount + 1
         } else if (computerChoice === 'paper') {
             console.log('Computer wins this round')
@@ -63,19 +63,33 @@ function playRound(computerChoice, playerChoice) {
             console.log('Computer wins this round')
             return computerCount = computerCount + 1
         } else if (computerChoice === 'paper') {
-            console.log('player wins this round')
+            console.log('Player wins this round')
             return playerCount = playerCount + 1
         } else if (computerChoice === 'scissors') {
-            console.log('it\'s a draw')
+            console.log('It\'s a draw')
             return playerCount = playerCount + 1, computerCount = computerCount + 1
         }
     }
 }
 
-playRound(computerChoice, playerChoice);
-console.log(computerCount);
-console.log(playerCount);
+let playerCountLog = `player\'s score is ${playerCount}`;
+let computerCountLog = `computer\'s score is ${computerCount}`;
+var gameCount;
 
-function game( playRound(computerChoice, playerChoice)) { //I have no idea if this is correct
 
+function playGame() {
+    for (gameCount = 1; gameCount < 6; gameCount++) {
+        playRound(getComputerChoice(choice), getPlayerChoice(choice));
+        console.log(`(playGame) player score is ${playerCount}`);
+        console.log(`(playGame) computer score is ${computerCount}`);
+        console.log(`game ${gameCount}`);
+    }
+    if (playerCount > computerCount) {
+        console.log('Player wins! \nRefresh page to play again.')
+    } else if (computerCount > playerCount) {
+        console.log('Computer wins! \nRefresh page to play again.')                  
+    } else {
+        console.log('It\'s a draw! \nRefresh page to play again.')  
+        }                  
 }
+playGame();
