@@ -1,34 +1,30 @@
-var choice;
-
-function getComputerChoice(choice) {
+function getComputerChoice() {
     let computerChoice = Math.random()
     console.log(computerChoice)
     if (computerChoice >= 0.000 && computerChoice < 0.333) {
-        return choice = 'rock'
+        return 'rock'
     } else if (computerChoice >= 0.333 && computerChoice < 0.666) {
-        return choice = 'paper'       
+        return 'paper'       
     } else if (computerChoice >= 0.666 && computerChoice < 1) {
-        return choice = 'scissors'
+        return 'scissors'
     } else {
-        return console.log('error in getComputerChoice')
+        console.log('error in getComputerChoice')
     }
 }
-var computerChoice = getComputerChoice(choice); //this (i think) is playing an initial and extra game that I do not want. Idk why.
 
-function getPlayerChoice(choice) {
+function getPlayerChoice() {
     let whatIsPlayerChoice = prompt('enter choice as a number: \n1. rock \n2. paper \n3. scissors')
     if (whatIsPlayerChoice == 1) {
-        return choice = 'rock'
+        return 'rock'
     } else if (whatIsPlayerChoice == 2) {
-        return choice = 'paper'
+        return 'paper'
     } else if (whatIsPlayerChoice == 3) {
-        return choice = 'scissors'
+        return 'scissors'
     } else {
         alert('You have entered number outside of given range')
-        return choice = 'invalid entry'
+        return 'invalid entry'
     }
 }
-var playerChoice = getPlayerChoice(choice); //this (i think) is playing an initial and extra game that I do not want. Idk why.
 
 var playerCount = 0;
 var computerCount = 0;
@@ -76,12 +72,11 @@ let playerCountLog = `player\'s score is ${playerCount}`;
 let computerCountLog = `computer\'s score is ${computerCount}`;
 var gameCount;
 
-
 function playGame() {
     for (gameCount = 1; gameCount < 6; gameCount++) {
-        playRound(getComputerChoice(choice), getPlayerChoice(choice));
-        console.log(`(playGame) player score is ${playerCount}`);
-        console.log(`(playGame) computer score is ${computerCount}`);
+        playRound(getComputerChoice(), getPlayerChoice());
+        console.log(`player score is ${playerCount}`);
+        console.log(`computer score is ${computerCount}`);
         console.log(`game ${gameCount}`);
     }
     if (playerCount > computerCount) {
