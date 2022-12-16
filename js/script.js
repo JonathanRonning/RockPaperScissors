@@ -32,40 +32,20 @@ var computerCount = 0;
 function playRound(computerChoice, playerChoice) {
     console.log(`Player choice is: ${playerChoice}`);
     console.log(`Computer choice is: ${computerChoice}`);
-    if (playerChoice === 'rock') {
-        if (computerChoice === 'rock') {
-            console.log('It\'s a draw')
-            return playerCount = playerCount + 1, computerCount = computerCount + 1
-        } else if (computerChoice === 'paper') {
-            console.log('Computer wins this round')
-            return computerCount = computerCount + 1
-        } else if (computerChoice === 'scissors') {
-            console.log('Player wins this round')
-            return playerCount = playerCount + 1
-        }
-    } else if (playerChoice === 'paper') {
-        if (computerChoice === 'rock') {
-            console.log('Player wins this round')
-            return playerCount = playerCount + 1
-        } else if (computerChoice === 'paper') {
-            console.log('it\'s a draw')
-            return playerCount = playerCount + 1, computerCount = computerCount + 1
-        } else if (computerChoice === 'scissors') {
-            console.log('Computer wins this round')
-            return computerCount = computerCount + 1
-        }
-    } else if (playerChoice === 'scissors') {
-        if (computerChoice === 'rock') {
-            console.log('Computer wins this round')
-            return computerCount = computerCount + 1
-        } else if (computerChoice === 'paper') {
-            console.log('Player wins this round')
-            return playerCount = playerCount + 1
-        } else if (computerChoice === 'scissors') {
-            console.log('It\'s a draw')
-            return playerCount = playerCount + 1, computerCount = computerCount + 1
-        }
-    }
+    if (playerChoice === computerChoice) {
+        console.log('it\s a draw!');
+        playerCount += 1, computerCount += 1;
+    } else if (playerChoice === 'rock' && computerChoice === 'paper' 
+            || playerChoice === 'paper' && computerChoice === 'scissors' 
+            || playerChoice === 'scissors' && computerChoice === 'rock') {
+        console.log('computer wins!');
+        computerCount += 1;
+    } else if (playerChoice === 'rock' && computerChoice === 'scissors' 
+            || playerChoice === 'paper' && computerChoice === 'rock' 
+            || playerChoice === 'scissors' && computerChoice === 'paper') {
+        console.log('player wins!');
+        playerCount += 1;
+    } 
 }
 
 let playerCountLog = `player\'s score is ${playerCount}`;
